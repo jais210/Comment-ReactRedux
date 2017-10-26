@@ -1,11 +1,12 @@
 import createStore from "redux-zero";
 const COMMENTS = [{
-    name: 'juan',
+    name: 'Juan',
     comment: 'holi'
 }];
 
 const initialState = {
-    comments : COMMENTS,    
+    comments : COMMENTS,
+       
 };
 
 const store = createStore(initialState);
