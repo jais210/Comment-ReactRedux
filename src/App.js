@@ -10,10 +10,10 @@ const App = ({comments}) =>{
 const allComments = comments.map((comment)=> <li key={comment.id}>{comment.name}{comment.comment}</li>); 
   const onSubmit = e => {
     e.preventDefault();
-    addComment(this.refInput.value);
+    addComment(this.refInputName.value,this.refInputComment.value);
   } 
     return (
-      <div>
+      <div className = "wrapper">
         <header>
           <h1>COMMENTS</h1>
           <p> Add your comments </p>
@@ -22,14 +22,14 @@ const allComments = comments.map((comment)=> <li key={comment.id}>{comment.name}
               type="text"
               name="name"
               placeholder="Add your name"
-              ref={e => (this.refInput = e)}
+              ref={e => (this.refInputName = e)}
 
             />
             <input
               type="text"
               name="name"
               placeholder="Add your comment"
-              ref={e => (this.refInput = e)}
+              ref={e => (this.refInputComment = e)}
             />
             <button type="submit" name="submit" value="submit">
               Submit
@@ -37,7 +37,7 @@ const allComments = comments.map((comment)=> <li key={comment.id}>{comment.name}
           </form>
         </header>
         <div className= "main">
-          <h2>COMMENTS</h2>
+          <h2>New Comment</h2>
           <h3>Number of Comments</h3>
           <ul id= "invitedList">{allComments}</ul>
         </div>
