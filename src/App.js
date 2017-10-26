@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {
   addComment,
-  removeComment,
-
-} from './actions';
+  removeComment } from './actions';
 import { connect } from 'redux-zero/react';
 import './App.css';
 
@@ -13,12 +11,10 @@ const App = ({ comments }) => {
   const onSubmit = e => {
     e.preventDefault();
     addComment(this.refInputName.value, this.refInputComment.value);
+    this.refInputName.value= '';
+    this.refInputComment.value= '';
   }
-  const remove = e => {
-    e.preventDefault();
-    removeComment(this.refInputName.value, this.refInputComment.value);
-  }
-  return (
+   return (
     <div className="wrapper">
       <header>
         <h1>COMMENTS</h1>
@@ -47,8 +43,8 @@ const App = ({ comments }) => {
         <ul id="invitedList">
           Comments : {allComments}
         </ul>
-
-      </div>
+       </div>
+      
     </div>
   );
 

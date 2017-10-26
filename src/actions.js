@@ -7,16 +7,8 @@ export const addComment = (name,comment) => {
        name: name,
        comment: comment
     });
-    store.setState({
+       store.setState({
        comments: newComments
-    });
- };
-
- export const removeComment = (name, comment) =>{
-    let oldComments = store.getState().comments;
-    const newComments = oldComments.filter((item, index)=> item != index);
-    store.setState({
-       comments: ''
     });
  };
 
