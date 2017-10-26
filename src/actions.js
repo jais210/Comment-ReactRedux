@@ -14,8 +14,10 @@ export const addComment = (name,comment) => {
 
  export const removeComment = (name, comment) =>{
     let oldComments = store.getState().comments;
-    const newComments = oldComments.filter(item=> item != name && item != comment);
+    const newComments = oldComments.filter((item, index)=> item != index);
     store.setState({
        comments: newComments
     });
  };
+
+ 
