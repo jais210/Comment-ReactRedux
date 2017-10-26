@@ -7,7 +7,8 @@ import { connect } from 'redux-zero/react';
 import './App.css';
 
 const App = ({comments}) =>{
-const allComments = comments.map((comment)=> <li key={comment.id}>{comment.name}{comment.comment}</li>); 
+const allNames = comments.map(comment => <li key={comment.id}>{comment.name}</li>);
+const allComments = comments.map(comment => <li key={comment.id}>{comment.comment}</li>); 
   const onSubmit = e => {
     e.preventDefault();
     addComment(this.refInputName.value,this.refInputComment.value);
@@ -37,8 +38,11 @@ const allComments = comments.map((comment)=> <li key={comment.id}>{comment.name}
           </form>
         </header>
         <div className= "main">
-          <h2>New Comment</h2>
+          <div><h2>New Comment</h2></div>
           <h3>Number of Comments</h3>
+          <p>Name:</p>
+          <ul id = "invitedList">{allNames}</ul>
+          <p>Comment:</p>
           <ul id= "invitedList">{allComments}</ul>
         </div>
       </div>
