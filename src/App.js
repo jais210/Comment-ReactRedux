@@ -6,40 +6,44 @@ import {
 import { connect } from 'redux-zero/react';
 import './App.css';
 
-class App extends Component {
-  render() {
+const App = ({comments}) =>{
+const allComments = comments.map((comment)=> <li key={comment.id}>{comment.name}{comment.comment}</li>); 
+  const onSubmit = e => {
+    e.preventDefault();
+    addComment(this.refInput.value);
+  } 
     return (
       <div>
         <header>
           <h1>COMMENTS</h1>
           <p> Add your comments </p>
-          <form>
+          <form onSubmit= {onSubmit}>
             <input
               type="text"
               name="name"
               placeholder="Add your name"
+              ref={e => (this.refInput = e)}
 
             />
             <input
               type="text"
               name="name"
               placeholder="Add your comment"
-
+              ref={e => (this.refInput = e)}
             />
-
             <button type="submit" name="submit" value="submit">
               Submit
             </button>
           </form>
         </header>
-        <div>
+        <div className= "main">
           <h2>COMMENTS</h2>
           <h3>Number of Comments</h3>
-          <ul></ul>
+          <ul id= "invitedList">{allComments}</ul>
         </div>
       </div>
     );
-  }
+  
 }
 
 const mapToProps = ({ comments }) => ({ comments });
